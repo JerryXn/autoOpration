@@ -23,6 +23,7 @@ jobs:
           playwright install chromium
 
       - name: Build Python Binary (Windows)
+        shell: cmd
         run: |
           if not exist "src\bin" mkdir src\bin
           pyinstaller --onefile --name xhs-core src/playwright/python/xhs.py --add-data "src/playwright/python;." --distpath src/bin
