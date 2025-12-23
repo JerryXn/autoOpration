@@ -38,7 +38,16 @@
       ".env",
       ".env.dev",
       ".env.prod",
-      "!src/bin/.gitkeep"
+      "!src/bin"
+    ],
+    "extraResources": [
+      {
+        "from": "src/bin",
+        "to": "bin",
+        "filter": [
+          "**/*"
+        ]
+      }
     ],
     "mac": {
       "target": [
