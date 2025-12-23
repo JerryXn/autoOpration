@@ -1,0 +1,86 @@
+name: Build/Release
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+
+      - name: Install Python Dependencies
+        run: |
+          pip install pyinstaller playwright pymysql dbutils
+          playwright install chromium
+
+      - name: Build Python Binary (Windows)
+        run: |
+          if not exist "src\bin" mkdir src\bin
+          pyinstaller --onefile --name xhs-core src/playwright/python/xhs.py --add-data "src/playwright/python;." --distpath src/bin
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install NPM Dependencies
+        run: npm install
+
+      - name: Build Electron App (Windows)
+        run: npm run dist:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoOperation-Windows
+          path: dist/*.exe
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install pyinstaller playwright pymysql dbutils
+          playwright install chromium
+
+      - name: Build Python Binary (macOS)
+        run: |
+          mkdir -p src/bin
+          pyinstaller --onefile --name xhs-core src/playwright/python/xhs.py --add-data "src/playwright/python:." --distpath src/bin
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install NPM Dependencies
+        run: npm install
+
+      - name: Build Electron App (macOS)
+        run: npm run dist:mac
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload macOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AutoOperation-MacOS
+          path: dist/*.dmg

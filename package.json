@@ -1,0 +1,50 @@
+{
+  "name": "autoOperation",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:dev": "APP_ENV=dev electron .",
+    "start:prod": "APP_ENV=prod electron .",
+    "xhs:cli": "node src/automation/xhs/cli.js",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "pw:open": "node src/playwright/open.js",
+    "test:db": "node -r dotenv/config --test test/db.test.js",
+    "test": "npm run test:db",
+    "user:add": "node -e \"require('dotenv').config();(async()=>{const mysql=require('mysql2/promise');const bcrypt=require('bcryptjs');const host=process.env.MYSQL_HOST||'127.0.0.1';const port=process.env.MYSQL_PORT?parseInt(process.env.MYSQL_PORT,10):3306;const user=process.env.MYSQL_USER||'root';const password=process.env.MYSQL_PASSWORD||'';const database=process.env.MYSQL_DATABASE||'auto_operation';const U=process.env.U;const P=process.env.P;const E=process.env.E; if(!U||!P||!E){console.error('Missing env U/P/E');process.exit(1);}const pool=await mysql.createPool({host,port,user,password,database});const hash=bcrypt.hashSync(P,10);await pool.query('INSERT INTO users (username, password_hash, expires_at) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE password_hash=VALUES(password_hash), expires_at=VALUES(expires_at)',[U,hash,E]);await pool.end();console.log('added',U);})().catch(e=>{console.error(e);process.exit(1);})\"",
+    "grant:platform": "node -e \"require('dotenv').config();(async()=>{const mysql=require('mysql2/promise');const host=process.env.MYSQL_HOST||'127.0.0.1';const port=process.env.MYSQL_PORT?parseInt(process.env.MYSQL_PORT,10):3306;const user=process.env.MYSQL_USER||'root';const password=process.env.MYSQL_PASSWORD||'';const database=process.env.MYSQL_DATABASE||'auto_operation';const U=process.env.U;const PLAT=process.env.PLAT; if(!U||!PLAT){console.error('Missing env U/PLAT');process.exit(1);}const pool=await mysql.createPool({host,port,user,password,database});const [[usr]] = await pool.query('SELECT id FROM users WHERE username = ?', [U]); if(!usr){console.error('user not found');process.exit(1);}const [[plat]] = await pool.query('SELECT id FROM platforms WHERE code = ?', [PLAT]); if(!plat){console.error('platform not found');process.exit(1);}await pool.query('INSERT INTO user_platforms (user_id, platform_id) VALUES (?, ?) ON DUPLICATE KEY UPDATE platform_id=VALUES(platform_id)', [usr.id, plat.id]);await pool.end();console.log('granted platform', PLAT, 'to', U);})().catch(e=>{console.error(e);process.exit(1);})\"",
+    "grant:feature": "node -e \"require('dotenv').config();(async()=>{const mysql=require('mysql2/promise');const host=process.env.MYSQL_HOST||'127.0.0.1';const port=process.env.MYSQL_PORT?parseInt(process.env.MYSQL_PORT,10):3306;const user=process.env.MYSQL_USER||'root';const password=process.env.MYSQL_PASSWORD||'';const database=process.env.MYSQL_DATABASE||'auto_operation';const U=process.env.U;const PLAT=process.env.PLAT;const FEAT=process.env.FEAT; if(!U||!PLAT||!FEAT){console.error('Missing env U/PLAT/FEAT');process.exit(1);}const pool=await mysql.createPool({host,port,user,password,database});const [[usr]] = await pool.query('SELECT id FROM users WHERE username = ?', [U]); if(!usr){console.error('user not found');process.exit(1);}const [[plat]] = await pool.query('SELECT id FROM platforms WHERE code = ?', [PLAT]); if(!plat){console.error('platform not found');process.exit(1);}const [[feat]] = await pool.query('SELECT id FROM features WHERE code = ?', [FEAT]); if(!feat){console.error('feature not found');process.exit(1);}await pool.query('INSERT INTO platform_features (platform_id, feature_id) VALUES (?, ?) ON DUPLICATE KEY UPDATE feature_id=VALUES(feature_id)', [plat.id, feat.id]);const [[pf]] = await pool.query('SELECT id FROM platform_features WHERE platform_id = ? AND feature_id = ?', [plat.id, feat.id]);await pool.query('INSERT INTO user_feature_grants (user_id, platform_feature_id) VALUES (?, ?) ON DUPLICATE KEY UPDATE platform_feature_id=VALUES(platform_feature_id)', [usr.id, pf.id]);await pool.end();console.log('granted feature', FEAT, 'on', PLAT, 'to', U);})().catch(e=>{console.error(e);process.exit(1);})\"",
+    "platform:url:seed": "node -e \"require('dotenv').config();(async()=>{const mysql=require('mysql2/promise');const host=process.env.MYSQL_HOST||'127.0.0.1';const port=process.env.MYSQL_PORT?parseInt(process.env.MYSQL_PORT,10):3306;const user=process.env.MYSQL_USER||'root';const password=process.env.MYSQL_PASSWORD||'';const database=process.env.MYSQL_DATABASE||'auto_operation';const pool=await mysql.createPool({host,port,user,password,database});try{await pool.query('ALTER TABLE platforms ADD COLUMN homepage_url VARCHAR(255) DEFAULT NULL');}catch(e){if(!e||e.code!=='ER_DUP_FIELDNAME') throw e;}const rows=[['xhs','https://www.xiaohongshu.com/'],['douyin','https://www.douyin.com/'],['ks','https://www.kuaishou.com/'],['mp','https://mp.weixin.qq.com/']];for(const [code,url] of rows){await pool.query('UPDATE platforms SET homepage_url=? WHERE code=?',[url,code]);}await pool.end();console.log('seeded platform homepage_url');})().catch(e=>{console.error(e);process.exit(1);})\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.6.1",
+    "mysql2": "^3.15.3",
+    "playwright": "^1.47.0"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.example.autooperation",
+    "productName": "AutoOperation",
+    "files": [
+      "src/**",
+      "db/**",
+      "package.json",
+      ".env",
+      ".env.dev",
+      ".env.prod",
+      "!src/bin/.gitkeep"
+    ],
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

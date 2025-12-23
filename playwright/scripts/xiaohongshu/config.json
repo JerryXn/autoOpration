@@ -1,0 +1,51 @@
+{
+  "search": {
+    "keyword": "保险"
+  },
+  "filter": {
+    "enabled": true,
+    "_comments": {
+      "sort": "可选值: 综合, 最新, 最多点赞, 最多评论, 最多收藏",
+      "type": "可选值: 不限, 视频, 图文",
+      "time": "可选值: 不限, 一天内, 一周内, 半年内",
+      "scope": "可选值: 不限, 已看过, 未看过, 已关注",
+      "distance": "可选值: 不限, 同城, 附近"
+    },
+    "sort": "最多点赞",
+    "type": "图文",
+    "time": "半年内",
+    "scope": "未看过",
+    "distance": "不限"
+  },
+  "limits": {
+    "maxNotes": 50,
+    "maxComments": 50
+  },
+  "actions": {
+    "like": true,
+    "likeRate": 80,
+    "collect": true,
+    "collectRate": 40,
+    "comment": true,
+    "commentText": "学到啦！",
+    "reply": true,
+    "replyText": "学到啦"
+  },
+  "crawler": {
+    "includeReplies": false
+  },
+  "system": {
+    "http": {
+      "timeout": 10000
+    },
+    "actionDelay": {
+      "min": 1000,
+      "max": 3000
+    }
+  },
+  "coze": {
+    "enabled": true,
+    "bot_id": "7579886550863839272",
+    "pat_token": "sat_VCrRI7a9kq6xaYBzm0x7RBdtPMOBwqHStPld6JOBccF58N30An9bvcadOIsv4VSs"
+  }
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Production
+dist/
+
+# System Files
+.DS_Store
+
+# Generated Binaries
+src/bin/
+!src/bin/.gitkeep
+
+# Environment Variables
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Playwright
+recordings/playwright/trace.zip
+recordings/playwright/videos/
+recordings/playwright/*.webm

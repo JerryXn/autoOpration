@@ -1,0 +1,9 @@
+{
+  "name": "@platform/agent-service",
+  "version": "0.1.0",
+  "main": "src/server.js",
+  "dependencies": {
+    "ws": "^8.18.0",
+    "node-fetch": "^3.3.2"
+  }
+}

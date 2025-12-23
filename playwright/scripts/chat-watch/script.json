@@ -1,0 +1,11 @@
+{
+  "name": "聊天监听示例",
+  "entry": "index.js",
+  "defaultOptions": {
+    "channel": "chrome",
+    "headless": false,
+    "locale": "zh-CN",
+    "timezoneId": "Asia/Shanghai",
+    "watch": { "chatSelector": "#chat" }
+  }
+}

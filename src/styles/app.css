@@ -1,0 +1,76 @@
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji'; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.item { border: 1px solid #eee; border-radius: 8px; padding: 12px; }
+.muted { color: #888; }
+table { border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+th, td { font-size: 13px; }
+.thumb-grid { display:grid; grid-template-columns: repeat(auto-fill, 96px); gap:8px; justify-content:start; }
+.thumb-item { position:relative; width:96px; border:1px solid #eee; border-radius:8px; padding:6px; text-align:center; }
+.thumb-img-wrap { position:relative; width:60px; height:80px; margin:0 auto; }
+.thumb-img { width:60px; height:80px; object-fit:cover; border-radius:6px; cursor: zoom-in; }
+.thumb-actions { width:60px; display:flex; gap:4px; justify-content:center; margin-top:6px; margin-left:auto; margin-right:auto; }
+.thumb-btn { flex:1; padding:2px 0; border:1px solid #ddd; border-radius:6px; background:#fff; color:#333; font-size:11px; cursor:pointer; }
+.thumb-btn:hover { background:#f7f7f7; }
+
+/* Autopublish page scoped styles */
+#autoop-card { position: relative; display:block; width:100%; }
+#ops-card { position: relative; display:flex; flex-direction:column; align-items:stretch; }
+#autopub-card .tabs { display:flex; gap:8px; border-bottom:1px solid #eee; margin-bottom:12px; background:#fff; padding-top:6px; }
+#autopub-card .tabs .tab { padding:6px 10px; border:none; background:transparent; cursor:pointer; color:#555; }
+#autopub-card .tabs .tab.active { color:#1677ff; border-bottom:2px solid #1677ff; }
+#autopub-card #import-pane, #autopub-card #publish-pane { min-height: 420px; overflow:auto; }
+#autopub-card #publish-table { width:100%; table-layout: fixed; }
+#autopub-card #publish-table th, #autopub-card #publish-table td { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* 自动发布列表：固定高度滚动，保持 tab 和列表表头不动 */
+#publish-table-wrap { height: 380px; overflow: auto; border: 1px solid #f0f0f0; border-radius: 8px; }
+#publish-table thead th { position: sticky; top: 0; background: #fff; z-index: 5; }
+#autopub-tabs { position: sticky; top: 56px; z-index: 9; background: #fff; }
+
+/* Publish item list scoped under autopub */
+#autopub-card .publish-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap:12px; }
+#autopub-card .publish-item { border:1px solid #eee; border-radius:8px; padding:8px; display:flex; gap:8px; align-items:flex-start; }
+#autopub-card .publish-thumb { width:60px; height:80px; object-fit:cover; border-radius:6px; }
+#autopub-card .publish-meta { flex:1; font-size:12px; color:#555; }
+#autopub-card .publish-meta .title { font-weight:600; color:#333; margin-bottom:4px; }
+#autopub-card .publish-meta .muted { color:#888; }
+
+.image-viewer { position:fixed; inset:0; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; z-index:1000; }
+.image-viewer img { max-width:90vw; max-height:90vh; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+#publish-pane .pager { display:flex; gap:8px; align-items:center; justify-content:flex-end; margin-top:10px; }
+#publish-pane .pager button { padding:6px 10px; border:1px solid #ddd; border-radius:6px; background:#fff; color:#333; font-size:12px; cursor:pointer; }
+#publish-pane .pager button:disabled { color:#aaa; border-color:#eee; cursor:default; }
+#publish-pane .pager .info { font-size:12px; color:#555; margin-right:auto; }
+
+/* 自动运营：同级独立模块样式 */
+#autoop-pane { border:1px solid #eee; border-radius:12px; background:#fff; box-shadow:0 6px 24px rgba(0,0,0,0.06); padding:16px; }
+#autoop-pane .muted { color:#888; }
+#autoop-pane label { font-size:12px; color:#555; }
+#autoop-card .area label { font-size:12px; }
+#autoop-card .area .btn-small { font-size:12px; }
+
+.btn-small { padding:6px 10px; border:1px solid #ddd; border-radius:6px; background:#fff; color:#333; font-size:12px; cursor:pointer; }
+.loading { position:fixed; inset:0; background:rgba(255,255,255,0.6); display:none; align-items:center; justify-content:center; z-index:9999; }
+.spinner { width:36px; height:36px; border:3px solid #1677ff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:rgba(0,0,0,0.8); color:#fff; padding:10px 16px; border-radius:8px; font-size:13px; display:none; z-index:10000; }
+.tooltip { position:fixed; left:0; top:0; background:rgba(0,0,0,0.85); color:#fff; padding:6px 10px; border-radius:6px; font-size:12px; display:none; z-index:10001; pointer-events:none; }
+.error-panel { position:fixed; right:16px; bottom:16px; width:420px; max-height:60vh; overflow:auto; background:#fff; border:1px solid #eee; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.12); padding:10px 12px; z-index:10001; display:none; }
+.error-panel .title { font-weight:600; color:#333; margin-bottom:6px; }
+.error-panel pre { white-space:pre-wrap; word-break:break-word; font-size:12px; color:#333; background:#fafafa; border:1px solid #f0f0f0; border-radius:6px; padding:8px; }
+.error-panel .actions { display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+#autoop-floater { position:fixed; bottom:20px; right:20px; background:#fff; border:1px solid #eee; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.12); padding:12px; z-index:100000; cursor:move; min-width:240px; }
+#autoop-floater.floater-centered { bottom:auto; right:auto; left:50%; top:50%; transform:translate(-50%, -50%); width:320px; max-width:360px; }
+#autoop-floater .title { font-weight:600; color:#333; }
+#autoop-floater .preview { font-size:12px; color:#555; margin-top:6px; word-break:break-word; }
+#autoop-floater .btn-group { display:flex; gap:8px; margin-top:8px; }
+#autoop-floater .btn { padding:6px 10px; border:1px solid #ddd; border-radius:6px; background:#fff; color:#333; font-size:12px; cursor:pointer; }
+#autoop-floater .btn:hover { background:#f7f7f7; }
+#autoop-floater .error-badge { background:#e5484d; color:#fff; border-radius:50%; width:16px; height:16px; display:inline-flex; align-items:center; justify-content:center; font-size:12px; margin-left:4px; }
+#controller-only,
+.controller-only #topbar,
+.controller-only .card,
+.controller-only #global-loading,
+.controller-only #global-toast { display:none !important; }
+.controller-only #autoop-floater { display:block !important; }

@@ -1,0 +1,102 @@
+{"ts": 1764924627929, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1764924631820, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1764924631853, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1764924631854, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1764924637253, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1764924637254, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1764924639739, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1764924666124, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1764924667068, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1764924667085, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": "https://www.xiaohongshu.com"}}
+{"ts": 1764924670923, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "ok", "data": {"entry": "https://www.xiaohongshu.com"}}
+{"ts": 1764924670923, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1764924671023, "task_id": "xhs_main", "step_id": "auth", "action": "cookie_built", "status": "ok", "data": {"len": 471}}
+{"ts": 1764924671025, "task_id": "xhs_main", "step_id": "cfg", "action": "actions", "status": "info", "data": {"like": true, "fav": true, "record": false, "user_id": 0}}
+{"ts": 1764924671025, "task_id": "xhs_main", "step_id": "cfg", "action": "search_keyword", "status": "ok", "data": {"keyword": "美食"}}
+{"ts": 1764924671026, "task_id": "xhs_main", "step_id": "cfg", "action": "comments_config", "status": "ok", "data": {"max_total": 1000, "max_per_note": 50, "timeout_ms": 8000}}
+{"ts": 1764924671026, "task_id": "xhs_main", "step_id": "api", "action": "paginate", "status": "begin", "data": {"keyword": "美食", "page_start": 1, "page_size": 20, "max_items": 200}}
+{"ts": 1764924698145, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1764924699079, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1764924699096, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": "https://www.xiaohongshu.com"}}
+{"ts": 1764924703323, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "ok", "data": {"entry": "https://www.xiaohongshu.com"}}
+{"ts": 1764924703323, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1764924703370, "task_id": "xhs_main", "step_id": "auth", "action": "cookie_built", "status": "ok", "data": {"len": 471}}
+{"ts": 1764924703372, "task_id": "xhs_main", "step_id": "cfg", "action": "actions", "status": "info", "data": {"like": true, "fav": true, "record": false, "user_id": 0}}
+{"ts": 1764924703373, "task_id": "xhs_main", "step_id": "cfg", "action": "search_keyword", "status": "ok", "data": {"keyword": "美食"}}
+{"ts": 1764924703373, "task_id": "xhs_main", "step_id": "cfg", "action": "comments_config", "status": "ok", "data": {"max_total": 1000, "max_per_note": 50, "timeout_ms": 8000}}
+{"ts": 1764924703374, "task_id": "xhs_main", "step_id": "api", "action": "paginate", "status": "begin", "data": {"keyword": "美食", "page_start": 1, "page_size": 20, "max_items": 200}}
+{"ts": 1764924703374, "task_id": "xhs_main", "step_id": "db", "action": "connect", "status": "info", "data": {"host": "localhost", "port": 3306, "database": "auto_test"}}
+{"ts": 1764924703396, "task_id": "xhs_main", "step_id": "db", "action": "init", "status": "error", "data": {"database": null}}
+{"ts": 1764924703396, "task_id": "xhs_main", "step_id": "cfg", "action": "filters", "status": "ok", "data": {"note_type": 2, "sort": "general", "time": "不限", "scope": "不限", "distance": "不限"}}
+{"ts": 1764924704483, "task_id": "xhs_main", "step_id": "api", "action": "search_notes", "status": "ok", "data": {"status": 200, "count": 0, "has_more": false, "filters": {"note_type": 2, "sort_tag": "general", "time_tag": "不限", "scope_tag": "不限", "dist_tag": "不限"}, "geo_len": 0}}
+{"ts": 1764924704484, "task_id": "xhs_main", "step_id": "db", "action": "store_items", "status": "ok", "data": {"inserted": 0, "after": 0}}
+{"ts": 1764924740954, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1764924741928, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1764924741963, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": "https://www.xiaohongshu.com"}}
+{"ts": 1764924745346, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "ok", "data": {"entry": "https://www.xiaohongshu.com"}}
+{"ts": 1764924745346, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1764924745408, "task_id": "xhs_main", "step_id": "auth", "action": "cookie_built", "status": "ok", "data": {"len": 471}}
+{"ts": 1764924745410, "task_id": "xhs_main", "step_id": "cfg", "action": "actions", "status": "info", "data": {"like": true, "fav": true, "record": false, "user_id": 0}}
+{"ts": 1764924745410, "task_id": "xhs_main", "step_id": "cfg", "action": "search_keyword", "status": "ok", "data": {"keyword": "美食"}}
+{"ts": 1764924745411, "task_id": "xhs_main", "step_id": "cfg", "action": "comments_config", "status": "ok", "data": {"max_total": 1000, "max_per_note": 50, "timeout_ms": 8000}}
+{"ts": 1764924745411, "task_id": "xhs_main", "step_id": "api", "action": "paginate", "status": "begin", "data": {"keyword": "美食", "page_start": 1, "page_size": 20, "max_items": 200}}
+{"ts": 1764925275781, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1764925276781, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1764925276801, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1764925276801, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158363137, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158364721, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158364744, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158364744, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158368341, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158368342, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158411079, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158411833, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158411853, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158411871, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158415184, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158415184, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158417257, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1765158507712, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 18}}
+{"ts": 1765158567762, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158568774, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158568792, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158568792, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158573083, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158573084, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158575219, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1765158647491, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158648492, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158648510, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158648545, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158652128, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158652128, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158654117, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1765158827935, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158828969, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158828989, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158829011, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158832252, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158832252, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158834081, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1765158864345, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158865986, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158866004, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158866005, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158869603, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158869604, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158871487, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1765158914365, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158915238, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158915256, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158915256, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158918906, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158918907, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158920570, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 0}}
+{"ts": 1765158944659, "task_id": "xhs_main", "step_id": "start", "action": "init", "status": "begin", "data": {"env": "dev"}}
+{"ts": 1765158947385, "task_id": "xhs_main", "step_id": "browser", "action": "start", "status": "ok", "data": {}}
+{"ts": 1765158947385, "task_id": "xhs_main", "step_id": "curl", "action": "missing_file", "status": "warn", "data": {"path": "src/curl/xhs_search_notes.curl"}}
+{"ts": 1765158947385, "task_id": "xhs_main", "step_id": "nav", "action": "goto_entry", "status": "begin", "data": {"entry": null}}
+{"ts": 1765158952788, "task_id": "xhs_main", "step_id": "auth", "action": "ensure_login", "status": "ok", "data": {}}
+{"ts": 1765158952788, "task_id": "xhs_main", "step_id": "nav", "action": "goto_search", "status": "begin", "data": {"url": "https://www.xiaohongshu.com/explore"}}
+{"ts": 1765158960758, "task_id": "xhs_main", "step_id": "api", "action": "search_notes_captured", "status": "ok", "data": {"count": 2}}

@@ -1,0 +1,13 @@
+{
+  "name": "xiaohongshu",
+  "entry": "index.js",
+  "url": "https://www.xiaohongshu.com/explore",
+  "defaultOptions": {
+    "channel": "chrome",
+    "headless": false,
+    "locale": "zh-CN",
+    "timezoneId": "Asia/Shanghai",
+    "storageKey": "my-session",
+    "persistLogin": true
+  }
+}

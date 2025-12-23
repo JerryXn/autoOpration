@@ -1,0 +1,14 @@
+{
+  "name": "playwright-platform",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*",
+    "scripts/*"
+  ],
+  "scripts": {
+    "start": "node packages/orchestrator/src/server.js",
+    "record": "node packages/recorder/src/cli.js",
+    "cli": "node packages/cli/src/index.js"
+  }
+}
