@@ -41,7 +41,17 @@
       "!src/bin/.gitkeep"
     ],
     "mac": {
-      "target": "dmg"
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
     },
     "win": {
       "target": "nsis"
